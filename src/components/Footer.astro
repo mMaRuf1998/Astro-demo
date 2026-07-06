@@ -1,0 +1,196 @@
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <img src="/logos/footer/cifarx-logo-dark.svg" alt="CIFARX Logo" class="footer-logo">
+            <p class="tagline">Beyond Boundaries, Into Bytes</p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="/works">Works</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/process">Development Process</a></li>
+                <li><a href="/contact">Contact us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h4>Contact</h4>
+            <p><strong>Email:</strong> <a href="mailto:contact@cifarx.com">contact@cifarx.com</a></p>
+            <p><strong>Address:</strong> 329, By lane, Momin Road, Chittagong, Bangladesh</p>
+        </div>
+    </div>
+
+    <hr class="footer-divider" />
+
+    <div class="footer-bottom">
+        <div class="copyright">
+            <span>© Copyright 2023 - 2026, CifarX. All Rights Reserved.</span>
+            <a href="/privacy-policy" class="privacy-link">Privacy Policy</a>
+        </div>
+        
+        <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="X (Twitter)"><span class="x-icon">X</span></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</footer>
+
+
+<style is:global>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+.site-footer {
+    background-color: #ffffff;
+    color: #05070f;
+    font-family: 'Inter', sans-serif;
+    padding: 5rem 4rem 2rem 4rem;
+    box-sizing: border-box;
+}
+
+/* Three-Column Grid System */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr; /* Matches the width distributions of image_869a9f.png */
+    gap: 4rem;
+    align-items: start;
+}
+
+/* Column 1: Branding */
+.footer-brand .footer-logo {
+    height: 36px;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.footer-brand .tagline {
+    color: #4b5563;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Typography Headings */
+.footer-links h4, 
+.footer-contact h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1.75rem;
+    color: #05070f;
+}
+
+/* Column 2: Lists */
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-links a {
+    color: #05070f;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #655FF5; /* Subtle branding feedback link hover */
+}
+
+/* Column 3: Contact Details */
+.footer-contact p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #05070f;
+    margin: 0 0 1rem 0;
+}
+
+.footer-contact a {
+    color: #05070f;
+    text-decoration: none;
+}
+
+/* Horizontal Partition rules */
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #e5e7eb;
+    margin: 5rem auto 2rem auto;
+    max-width: 1200px;
+}
+
+/* Bottom Bar Realignment */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #374151;
+}
+
+.footer-bottom .copyright {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.footer-bottom .privacy-link {
+    color: #374151;
+    text-decoration: underline;
+}
+
+/* Social Icon Blocks matching the right side layout inside image_869a9f.png */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    color: #05070f;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-2px);
+}
+
+.social-icons .x-icon {
+    font-family: system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+/* Responsive Grid Adaptation */
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 4rem 2rem 2rem 2rem;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .footer-bottom {
+        flex-direction: column-reverse;
+        gap: 2rem;
+        text-align: center;
+    }
+    .footer-bottom .copyright {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+</style>

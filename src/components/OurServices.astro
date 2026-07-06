@@ -1,0 +1,147 @@
+---
+import ServiceCard from "./serviceCard.astro"
+
+
+
+const services = [
+  {
+    id: 0,
+    title: 'Web Development',
+    description: 'Turning ideas into stunning websites and powerful web apps that drive business growth, visibility and user engagement.',
+    imageSrc: "/logos/services/web_dark.svg",
+    link: '/services#webapp-development',
+  },
+  {
+    id: 1,
+    title: 'Mobile App Development',
+    description: 'Versatile mobile apps solution for a seamless Android and iOS experience, bringing your vision to life efficiently.',
+    imageSrc: "/logos/services/app_dark.svg",
+    link: '/services#mobile-development',
+  },
+  {
+    id: 4,
+    title: 'UI/UX Design',
+    description: 'Leverage our UI/UX expertise to create functional, stunning, and aesthetic designs that drive success.',
+    imageSrc: "/logos/services/ui_dark.svg",
+    link: '/services#ui-ux',
+  },
+];
+---
+
+<div class="our-services">
+    <h1>Our Services</h1>
+    <p>We provide a comprehensive range of software development and product design services, driven by professionalism and excellence</p>
+    
+    <div class="service-list">
+        {services.map(service => (
+            <ServiceCard 
+                title={service.title} 
+                description={service.description} 
+                imageSrc={service.imageSrc} 
+                link={service.link}
+            />
+        ))}
+    </div>
+</div>
+<style is:global>
+.our-services {
+    text-align: center;
+    padding: 6rem 2rem;
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa; 
+}
+
+.our-services h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.our-services p {
+    color: #535e72;
+    font-size: 1.1rem;
+    max-width: 650px;
+    margin: 0 auto 4rem auto;
+    line-height: 1.5;
+}
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 32px; 
+    padding: 3.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+/* FIX: Wrap or give space for the image layout without crushing it */
+.service-card img {
+    background-color: #f1f3f7;
+    border-radius: 50%;
+    
+    width: 100px;  
+    height: 100px;
+    padding: 1.25rem; 
+    box-sizing: border-box; 
+    
+    object-fit: contain; 
+    
+    display: inline-block;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.service-card h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #667085;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+}
+
+.service-card a {
+    margin-top: auto; 
+    font-weight: 500;
+    color: #655FF5;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.service-card:hover {
+    background-color: #655FF5; 
+    color: #ffffff;
+}
+
+.service-card:hover img {
+    background-color: rgba(255, 255, 255, 0.2); 
+}
+
+.service-card:hover p {
+    color: rgba(255, 255, 255, 0.85); 
+}
+
+.service-card:hover a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+</style>
