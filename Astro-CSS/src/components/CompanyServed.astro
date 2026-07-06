@@ -1,0 +1,106 @@
+---
+const companiesImgSrc = [
+    {
+        name: "KR",
+        src: "/logos/companies/kr.svg"
+    },
+    {
+        name: "Savdo",
+        src: "/logos/companies/savdo.svg"
+    },
+    {
+        name: "Laklak",
+        src: "/logos/companies/laklak.svg"
+    },
+    {
+        name: "Brac",
+        src: "/logos/companies/brac.svg"
+    },
+    {
+        name: "Hulkenstein",
+        src: "/logos/companies/hulk.svg"
+    }
+]
+---
+
+<div class="company-list">
+    <h3>We’ve supported 10+ companies in reaching their goals.</h3>
+    <div class="company-logos">
+        {
+            companiesImgSrc.map((company) => (
+                <img src={company.src} />
+            ))
+        }
+    </div>
+</div>
+
+
+<style>
+    .company-list {
+    text-align: center;
+    padding: 5rem 2rem;
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Heading Text styling */
+.company-list h3 {
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 4rem;
+    letter-spacing: -0.01em;
+}
+
+/* Logo Grid / Flex Wrapper */
+.company-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual Logo Containers / Images */
+.company-logos img {
+    flex: 1;
+    width: 100%;
+     /* Limits individual logo size width */
+    max-width: 250px;
+    height: 60px; /* Fixes height scale to keep them uniform */
+    object-fit: contain; /* Prevents warping or stretching */
+    padding: 0 5rem;
+    box-sizing: border-box;
+
+    /* Recreates the elegant gray-muted look from 1.PNG */
+    filter: grayscale(100%);
+    opacity: 0.7;
+    
+    /* Smooth transition if you want to add hover effects later */
+    transition: all 0.3s ease; 
+}
+
+/* Adding the subtle vertical divider lines seen in 1.PNG */
+.company-logos img:not(:last-child) {
+    border-right: 1px solid #e5e7eb; /* Soft divider line */
+}
+
+/* Optional Hover Effect to make the logos active */
+.company-logos img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Responsive Scaling for smaller tablet/mobile devices */
+@media (max-width: 768px) {
+    .company-logos {
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+    .company-logos img {
+        flex: calc(50% - 2rem);
+        max-width: 140px;
+        border-right: none !important; /* Removes vertical dividers on mobile viewports */
+    }
+}
+</style>

@@ -1,0 +1,17 @@
+---
+interface Props {
+    imageSrc: string;
+    title: string;
+    description: string;
+    link?: string;
+}
+
+const { title, description, link, imageSrc } = Astro.props;
+---
+
+<div class="service-card">
+    <img src={imageSrc} alt={title}>
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <a href={link || '#'}>Read More</a>
+</div>

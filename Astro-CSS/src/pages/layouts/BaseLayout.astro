@@ -1,0 +1,44 @@
+---
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+        
+        <link rel="stylesheet" 
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>CifarX</title>
+	</head>
+	<body>
+        <Header />
+    <slot/>
+	</body>
+
+    <Footer />
+    
+</html>
+
+
+<style is:global>
+    /* Reset and global dark theme matching Capture.PNG */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        background-color: #05070f;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        color: #ffffff;
+        overflow-x: hidden;
+    }
+</style>
+
+

@@ -1,0 +1,140 @@
+---
+interface ButtonItem {
+    text: string;
+    link: string;
+}
+
+interface Props {
+    title: string;
+    description: string;
+    buttons ?: ButtonItem[];
+}
+
+const { title, description, buttons } = Astro.props;
+
+---
+
+<div class="poster-content">
+    <h1 set:html={title}></h1>
+    <p set:html={description}></p>
+    <div class="poster-buttons">
+        {buttons &&
+            buttons.map((button, index) => (
+                <a 
+                    href={button.link} 
+                    class={index === 0 ? "btn-primary" : "btn-secondary"}
+                >
+                    {button.text}
+                </a>
+            ))
+        }
+    </div>
+</div>
+
+<style is:global>
+    .poster-content {
+    padding: 250px 2rem 6rem 2rem;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+    .poster-content h1 {
+        font-size: clamp(3rem, 6vw, 5.5rem);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        color: #ffffff;
+        margin-bottom: 2rem;
+    }
+
+
+    .poster-content p {
+        font-size: clamp(1rem, 1.5vw, 1.25rem);
+        color: #94a3b8; 
+        max-width: 680px;
+        line-height: 1.6;
+        margin-bottom: 3rem;
+        font-weight: 400;
+    }
+
+    .poster-buttons {
+        display: flex;
+        gap: 1.25rem;
+        align-items: center;
+    }
+
+    .poster-buttons a {
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 0.85rem 2.2rem;
+        border-radius: 100px;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+   
+    .btn-primary {
+        background: #5d5bf6; 
+        color: #ffffff;
+        border: 1px solid transparent;
+    }
+
+    .btn-primary:hover {
+        background: #4b49dc;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(93, 91, 246, 0.25);
+    }
+
+
+    .btn-secondary {
+        background: transparent;
+        color: #ffffff;
+        border: 1px solid #334155; 
+    }
+
+    .btn-secondary:hover {
+        border-color: #ffffff;
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateY(-2px);
+    }
+
+
+
+
+    @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+.poster-content h1 {
+    opacity: 0; 
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 0.1s; 
+}
+
+.poster-content p {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 0.25s; 
+}
+
+.poster-content .poster-buttons {
+
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 0.4s; 
+}
+</style>
