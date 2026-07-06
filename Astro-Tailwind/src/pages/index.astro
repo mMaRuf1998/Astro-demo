@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../pages/layouts/BaseLayout.astro';
+import PosterContent from '../components/PosterContent.astro';
+import CompanyServed from '../components/CompanyServed.astro';
+import OurServices from '../components/OurServices.astro';
+import Footer from '../components/Footer.astro';
+
+const buttonsList = [
+	{ text: "Start a Project", link: "/start-project" },
+	{ text: "See Our Works", link: "/works" }
+];
+
+---
+
+<BaseLayout>
+	<PosterContent title="Beyond Boundaries,</br>Into Bytes" description="Elevate your vision, transform your ideas into seamless solutions with our full stack product development services." buttons = {buttonsList} />
+	<CompanyServed />
+	<OurServices />
+</BaseLayout>
+

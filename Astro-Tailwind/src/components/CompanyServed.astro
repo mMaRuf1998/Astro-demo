@@ -1,0 +1,42 @@
+---
+
+const companiesImgSrc = [
+    {
+        name: "KR",
+        src: "/logos/companies/kr.svg"
+    },
+    {
+        name: "Savdo",
+        src: "/logos/companies/savdo.svg"
+    },
+    {
+        name: "Laklak",
+        src: "/logos/companies/laklak.svg"
+    },
+    {
+        name: "Brac",
+        src: "/logos/companies/brac.svg"
+    },
+    {
+        name: "Hulkenstein",
+        src: "/logos/companies/hulk.svg"
+    }
+]
+---
+
+<div class="bg-white px-8 py-20 text-center font-sans">
+    <h3 class="mb-16 text-[1.75rem] font-medium tracking-tight text-black">
+        We’ve supported 10+ companies in reaching their goals.
+    </h3>
+    <div class="mx-auto flex max-w-[1200px] flex-wrap items-center justify-center gap-8 md:flex-nowrap md:gap-0">
+        {
+            companiesImgSrc.map((company) => (
+                <img 
+                    src={company.src} 
+                    alt={company.name}
+                    class="h-[60px] w-full max-w-[140px] flex-[1_1_calc(50%-2rem)] border-box object-contain px-0 grayscale opacity-70 transition-all duration-300 ease-in-out hover:filter-none hover:opacity-100 md:max-w-[250px] md:flex-1 md:px-20 md:border-r md:border-gray-200 md:last:border-r-0" 
+                />
+            ))
+        }
+    </div>
+</div>

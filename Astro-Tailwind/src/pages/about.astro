@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../pages/layouts/BaseLayout.astro';
+import PosterContent from '../components/PosterContent.astro';
+import Footer from '../components/Footer.astro';
+
+const buttonsList = [
+
+	{ text: "See Our Works", link: "/works" }
+];
+---
+
+<BaseLayout>
+	<PosterContent title="About The Team" description="CifarX is a team of passionate innovators, crafting high-quality web, app and design solutions tailored to your needs. Driven by excellence, we turn ideas into impactful digital experiences that inspire and empower. Let’s build something extraordinary." buttons={buttonsList} />
+</BaseLayout>
+

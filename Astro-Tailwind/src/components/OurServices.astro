@@ -1,0 +1,45 @@
+---
+import ServiceCard from "./serviceCard.astro";
+
+const services = [
+  {
+    id: 0,
+    title: 'Web Development',
+    description: 'Turning ideas into stunning websites and powerful web apps that drive business growth, visibility and user engagement.',
+    imageSrc: "/logos/services/web_dark.svg",
+    link: '/services#webapp-development',
+  },
+  {
+    id: 1,
+    title: 'Mobile App Development',
+    description: 'Versatile mobile apps solution for a seamless Android and iOS experience, bringing your vision to life efficiently.',
+    imageSrc: "/logos/services/app_dark.svg",
+    link: '/services#mobile-development',
+  },
+  {
+    id: 4,
+    title: 'UI/UX Design',
+    description: 'Leverage our UI/UX expertise to create functional, stunning, and aesthetic designs that drive success.',
+    imageSrc: "/logos/services/ui_dark.svg",
+    link: '/services#ui-ux',
+  },
+];
+---
+
+<div class="bg-[#f8f9fa] px-8 py-24 text-center font-sans">
+    <h1 class="mb-2 text-5xl font-bold tracking-tight text-black">Our Services</h1>
+    <p class="mx-auto mb-16 max-w-[650px] text-[1.1rem] leading-[1.5] text-[#535e72]">
+        We provide a comprehensive range of software development and product design services, driven by professionalism and excellence
+    </p>
+    
+    <div class="mx-auto grid max-w-[1200px] grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8">
+        {services.map(service => (
+            <ServiceCard 
+                title={service.title} 
+                description={service.description} 
+                imageSrc={service.imageSrc} 
+                link={service.link}
+            />
+        ))}
+    </div>
+</div>

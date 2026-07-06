@@ -1,0 +1,90 @@
+<footer class="bg-white px-8 py-20 text-[#05070f] font-sans md:px-16">
+    <div class="footer-container mx-auto max-w-[1200px]">
+        <!-- Column 1: Branding -->
+        <div class="footer-brand">
+            <img src="/logos/footer/cifarx-logo-dark.svg" alt="CIFARX Logo" class="h-9 mb-4 block object-contain">
+            <p class="text-gray-600 text-base m-0">Beyond Boundaries, Into Bytes</p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-links">
+            <h4 class="text-[1.1rem] font-semibold mt-0 mb-7">Quick Links</h4>
+            <ul class="list-none p-0 m-0 flex flex-col gap-4">
+                <li><a href="/about" class="text-base no-underline transition-colors duration-200">About</a></li>
+                <li><a href="/works" class="text-base no-underline transition-colors duration-200">Works</a></li>
+                <li><a href="/services" class="text-base no-underline transition-colors duration-200">Services</a></li>
+                <li><a href="/process" class="text-base no-underline transition-colors duration-200">Development Process</a></li>
+                <li><a href="/contact" class="text-base no-underline transition-colors duration-200">Contact us</a></li>
+            </ul>
+        </div>
+
+        <!-- Column 3: Contact Details -->
+        <div class="footer-contact">
+            <h4 class="text-[1.1rem] font-semibold mt-0 mb-7">Contact</h4>
+            <p class="text-base leading-relaxed m-0 mb-4"><strong>Email:</strong> <a href="mailto:contact@cifarx.com" class="no-underline">contact@cifarx.com</a></p>
+            <p class="text-base leading-relaxed m-0 mb-4"><strong>Address:</strong> 329, By lane, Momin Road, Chittagong, Bangladesh</p>
+        </div>
+    </div>
+
+    <hr class="border-0 border-t border-gray-200 my-8 mx-auto max-w-[1200px] md:mt-20 md:mb-8" />
+
+    <div class="footer-bottom mx-auto max-w-[1200px] flex flex-col-reverse justify-between items-center text-[0.95rem] text-gray-700 gap-8 md:flex-row md:gap-0">
+        <div class="copyright flex flex-col gap-2 text-center md:flex-row md:gap-2 md:text-left">
+            <span>© Copyright 2023 - 2026, CifarX. All Rights Reserved.</span>
+            <a href="/privacy-policy" class="underline text-gray-700">Privacy Policy</a>
+        </div>
+        
+        <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="X (Twitter)"><span class="x-icon">X</span></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</footer>
+
+<style>
+/* Clean handling of the asymmetric grid layouts */
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media (min-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1.5fr 1fr 1.5fr;
+        gap: 4rem;
+    }
+}
+
+/* Cleaner interactive state assignments */
+.footer-links a:hover {
+    color: #655FF5;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    color: #05070f;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-2px);
+}
+
+.social-icons .x-icon {
+    font-family: system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+</style>
