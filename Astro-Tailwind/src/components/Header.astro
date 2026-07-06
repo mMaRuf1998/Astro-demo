@@ -1,92 +1,65 @@
 ---
 ---
-<header id="siteHeader" class="main-header">
-    <div class="Header mx-auto w-full bg-[#05070f] font-sans box-border flex items-center justify-between">
-        <div class="header-logo">
-            <img src="../../src/logos/nav/cifarx-logo.svg" alt="CIFARX Logo" class="block h-8">
-        </div>
-
-        <nav class="header-nav hidden md:block mx-auto">
-            <ul class="list-none m-0 p-0 flex gap-10">
-                <li><a href="/" class="text-white no-underline text-[0.95rem] font-medium tracking-[-0.01em] transition-colors duration-250 ease-out hover:text-violet-500">Home</a></li>
-                <li><a href="/about" class="text-white no-underline text-[0.95rem] font-medium tracking-[-0.01em] transition-colors duration-250 ease-out hover:text-violet-500">About</a></li>
-                <li><a href="/contact" class="text-white no-underline text-[0.95rem] font-medium tracking-[-0.01em] transition-colors duration-250 ease-out hover:text-violet-500">Contact</a></li>
-            </ul>
-        </nav>
-
-        <div class="nav-button">
-            <a href="#" class="inline-block bg-white text-[#05070f] no-underline px-8 py-3 rounded-full text-[0.95rem] font-medium border-2 border-transparent transition-all duration-250 ease-out hover:bg-transparent hover:text-white hover:border-white">
-                Get in Touch
-            </a>
-        </div>
+<header id="siteHeader" class="main-header fixed top-0 left-0 w-full z-[1000] transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)]">
+  <div class="Header bg-[#05070f] font-sans flex items-center justify-between px-16 py-6 max-w-[1500px] mx-auto my-8 border border-transparent transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)]">
+    
+    <!-- Logo -->
+    <div class="header-logo">
+      <img src="/logos/nav/cifarx-logo.svg" alt="CIFARX Logo" class="block h-8">
     </div>
+
+    <!-- Navigation Menu -->
+    <nav class="header-nav mx-auto">
+      <ul class="list-none m-0 p-0 flex gap-10">
+        <li><a href="/" class="text-white no-underline text-[0.95rem] font-medium tracking-tight transition-colors duration-250 hover:text-[#8b5cf6]">Home</a></li>
+        <li><a href="/about" class="text-white no-underline text-[0.95rem] font-medium tracking-tight transition-colors duration-250 hover:text-[#8b5cf6]">About</a></li>
+        <li><a href="/contact" class="text-white no-underline text-[0.95rem] font-medium tracking-tight transition-colors duration-250 hover:text-[#8b5cf6]">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- CTA Button -->
+    <div class="nav-button">
+      <a href="#" class="inline-block bg-white text-[#05070f] no-underline px-8 py-3 rounded-full text-[0.95rem] font-medium border-2 border-transparent transition-all duration-250 hover:bg-transparent hover:text-white hover:border-white">
+        Get in Touch
+      </a>
+    </div>
+    
+  </div>
 </header>
 
 <style>
-/* Base fixed container wrapper */
-.main-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    /* Uses transform matrix for smooth rendering scaling */
-    transform-origin: top center;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
+  /* Keeps the Google font active on the component */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+  
+  .Header {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
 
-/* Default state layout values (Full width expanded layout) */
-.Header {
-    max-width: 1500px;
-    padding: 1.5rem 4rem; 
-    margin: 2rem auto 0 auto;
-    border: 1px solid transparent;
-    border-radius: 100px; /* Kept rounded base to preserve shape architecture transitions */
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
+  /* Handles the complex architectural changes when scrolled */
+  .main-header.scrolled {
+    top: 15px; 
+  }
 
-/* --- THE NEW SCROLL TRANSFORMATION METHOD --- */
-.main-header.scrolled {
-    /* Instead of changing layout metrics, we scale down linearly from the top center */
-    transform: scale(0.92); 
-}
-
-.main-header.scrolled .Header {
-    max-width: 900px; /* Constrains the width smoothly alongside the scaling factor */
+  .main-header.scrolled .Header {
+    max-width: 800px; 
+    padding: 0.75rem 2rem; 
+    border-radius: 100px; 
     background-color: rgba(5, 7, 15, 0.85); 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    
     box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 1px 0px rgba(255,255,255,0.1);
     border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Clean up viewport adaptions for tiny mobile viewports */
-@media (max-width: 768px) {
-    .Header {
-        padding: 1.25rem 2rem;
-        margin: 0;
-        border-radius: 0;
-    }
-    .main-header.scrolled {
-        transform: scale(1); /* Disable scaling transformation updates on small viewports */
-    }
-    .main-header.scrolled .Header {
-        max-width: 100%;
-        border-radius: 0;
-    }
-}
+  }
 </style>
 
 <script>
-    const header = document.getElementById('siteHeader');
-    
-    window.addEventListener('scroll', () => {
-        // Triggers the state transform once scroll tracking passes 40px down
-        if (window.scrollY > 40) {
-            header?.classList.add('scrolled');
-        } else {
-            header?.classList.remove('scrolled');
-        }
-    });
+  const header = document.getElementById('siteHeader');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  });
 </script>
