@@ -1,15 +1,25 @@
 ---
 ---
-<header id="siteHeader" class="main-header fixed top-0 left-0 w-full z-[1000] transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)]">
-  <div class="Header bg-[#05070f] font-sans flex items-center justify-between px-16 py-6 max-w-[1500px] mx-auto my-8 border border-transparent transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)]">
-    
-    <!-- Logo -->
-    <div class="header-logo">
-      <img src="/logos/nav/cifarx-logo.svg" alt="CIFARX Logo" class="block h-8">
+<header id="siteHeader" class="main-header fixed top-0 left-0 w-full z-[1000] transition-all duration-[600ms] ease-[cubic-bezier(0.25,1,0.5,1)] max-md:[.scrolled_&]:top-0">
+  
+  <div class="Header bg-[#05070f] font-sans flex items-center justify-between px-6 py-4 md:px-16 md:py-6 mx-auto border border-transparent transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)]
+  w-[95%] max-w-[95%] my-6 rounded-2xl md:rounded-3xl 
+  md:[.scrolled_&]:w-[80%] md:[.scrolled_&]:max-w-[90%] md:[.scrolled_&]:px-8 md:[.scrolled_&]:py-3 md:[.scrolled_&]:rounded-[100px] md:[.scrolled_&]:my-4">
+  
+    <div class="header-logo relative z-[1003] h-7 md:h-8 w-32 md:w-36">
+      <img 
+        src="/logos/nav/cifarx-logo.svg" 
+        alt="CIFARX Logo" 
+        class="logo-light absolute top-0 left-0 h-full w-auto object-contain transition-opacity duration-300 ease-in-out opacity-100 max-md:[.menu-open_&]:opacity-0 max-md:[.menu-open_&]:pointer-events-none"
+      >
+      <img 
+        src="/logos/nav/cifarx-logo-dark.svg" 
+        alt="CIFARX Logo" 
+        class="logo-dark absolute top-0 left-0 h-full w-auto object-contain transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none max-md:[.menu-open_&]:opacity-100 max-md:[.menu-open_&]:pointer-events-auto"
+      >
     </div>
 
-    <!-- Navigation Menu -->
-    <nav class="header-nav mx-auto">
+    <nav class="header-nav mx-auto hidden md:block">
       <ul class="list-none m-0 p-0 flex gap-10">
         <li><a href="/" class="text-white no-underline text-[0.95rem] font-medium tracking-tight transition-colors duration-250 hover:text-[#8b5cf6]">Home</a></li>
         <li><a href="/about" class="text-white no-underline text-[0.95rem] font-medium tracking-tight transition-colors duration-250 hover:text-[#8b5cf6]">About</a></li>
@@ -17,43 +27,50 @@
       </ul>
     </nav>
 
-    <!-- CTA Button -->
-    <div class="nav-button">
+    <div class="nav-button hidden md:block">
       <a href="#" class="inline-block bg-white text-[#05070f] no-underline px-8 py-3 rounded-full text-[0.95rem] font-medium border-2 border-transparent transition-all duration-250 hover:bg-transparent hover:text-white hover:border-white">
         Get in Touch
       </a>
     </div>
+
+    <button id="menuToggle" class="block md:hidden text-white focus:outline-none z-[1003] transition-colors duration-300 max-md:[.menu-open_&]:absolute max-md:[.menu-open_&]:right-10 max-md:[.menu-open_&]:text-[#05070f]" aria-label="Toggle navigation menu">
+      <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
     
+  </div>
+
+  <div id="menuOverlay" class="fixed inset-0 bg-black/40 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 md:hidden z-[1001]"></div>
+
+  <div id="mobileMenu" class="fixed top-0 left-0 w-full bg-white rounded-b-[2rem] pt-28 pb-10 px-8 flex flex-col items-center gap-6 -translate-y-full transition-transform duration-300 ease-in-out md:hidden z-[1002] shadow-2xl">
+    <ul class="list-none m-0 p-0 flex flex-col items-center gap-5 w-full">
+      <li><a href="/" class="mobile-link text-[#05070f] no-underline text-[1.1rem] font-medium tracking-tight hover:text-[#8b5cf6] transition-colors">Home</a></li>
+      <li><a href="/about" class="mobile-link text-[#05070f] no-underline text-[1.1rem] font-medium tracking-tight hover:text-[#8b5cf6] transition-colors">About</a></li>
+      <li><a href="/contact" class="mobile-link text-[#05070f] no-underline text-[1.1rem] font-medium tracking-tight hover:text-[#8b5cf6] transition-colors">Contact</a></li>
+    </ul>
+    <div class="w-full border-t border-gray-100 my-2"></div>
+    <a href="#" class="mobile-link inline-block w-full text-center bg-[#05070f] text-white no-underline py-3 rounded-full text-[1rem] font-medium transition-all hover:bg-[#8b5cf6]">
+      Get in Touch
+    </a>
   </div>
 </header>
 
 <style>
-  /* Keeps the Google font active on the component */
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
   
   .Header {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
-
-  /* Handles the complex architectural changes when scrolled */
-  .main-header.scrolled {
-    top: 15px; 
-  }
-
-  .main-header.scrolled .Header {
-    max-width: 800px; 
-    padding: 0.75rem 2rem; 
-    border-radius: 100px; 
-    background-color: rgba(5, 7, 15, 0.85); 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 1px 0px rgba(255,255,255,0.1);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
 </style>
 
 <script>
   const header = document.getElementById('siteHeader');
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuOverlay = document.getElementById('menuOverlay');
+  const menuIcon = document.getElementById('menuIcon');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
   
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -61,5 +78,38 @@
     } else {
       header?.classList.remove('scrolled');
     }
+  });
+
+  function toggleMenu() {
+    const isOpen = mobileMenu?.classList.contains('translate-y-0');
+    
+    if (isOpen) {
+      mobileMenu?.classList.remove('translate-y-0');
+      mobileMenu?.classList.add('-translate-y-full');
+      menuOverlay?.classList.add('opacity-0', 'pointer-events-none');
+      menuOverlay?.classList.remove('opacity-100', 'pointer-events-auto');
+      header?.classList.remove('menu-open');
+      menuIcon?.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      document.body.style.overflow = ''; 
+    } else {
+      mobileMenu?.classList.remove('-translate-y-full');
+      mobileMenu?.classList.add('translate-y-0');
+      menuOverlay?.classList.remove('opacity-0', 'pointer-events-none');
+      menuOverlay?.classList.add('opacity-100', 'pointer-events-auto');
+      header?.classList.add('menu-open');
+      menuIcon?.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+      document.body.style.overflow = 'hidden'; 
+    }
+  }
+
+  menuToggle?.addEventListener('click', toggleMenu);
+  menuOverlay?.addEventListener('click', toggleMenu);
+  
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (mobileMenu?.classList.contains('translate-y-0')) {
+        toggleMenu();
+      }
+    });
   });
 </script>

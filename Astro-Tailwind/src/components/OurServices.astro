@@ -26,13 +26,13 @@ const services = [
 ];
 ---
 
-<div class="bg-[#f8f9fa] px-8 py-24 text-center font-sans">
-    <h1 class="mb-2 text-5xl font-bold tracking-tight text-black">Our Services</h1>
-    <p class="mx-auto mb-16 max-w-[650px] text-[1.1rem] leading-[1.5] text-[#535e72]">
+<div class="bg-[#f8f9fa] px-6 sm:px-8 py-16 md:py-24 text-center font-sans">
+    <h1 class="mb-3 text-4xl sm:text-5xl font-bold tracking-tight text-black">Our Services</h1>
+    <p class="mx-auto mb-12 sm:mb-16 max-w-[650px] text-base sm:text-[1.1rem] leading-[1.5] text-[#535e72] text-pretty">
         We provide a comprehensive range of software development and product design services, driven by professionalism and excellence
     </p>
     
-    <div class="mx-auto grid max-w-[1200px] grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8">
+    <div class="mx-auto grid max-w-[1200px] grid-cols-[repeat(auto-fit,minmax(250px,1fr))] md:grid-cols-3 gap-6 md:gap-8 items-stretch">
         {services.map(service => (
             <ServiceCard 
                 title={service.title} 

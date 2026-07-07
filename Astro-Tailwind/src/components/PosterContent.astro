@@ -13,21 +13,22 @@ interface Props {
 const { title, description, buttons } = Astro.props;
 ---
 
-<div class="mx-auto flex max-w-[1200px] flex-col items-center justify-center px-8 pb-24 pt-[250px] text-center">
+<div class="mx-auto flex max-w-[1200px] flex-col items-center justify-center px-6 sm:px-8 pb-16 pt-32 sm:pt-40 md:pt-48 lg:pt-56 text-center">
+    
     <h1 
         set:html={title} 
-        class="animate-item mb-8 text-4xl font-bold leading-[1.1] tracking-[-0.03em] text-white sm:text-6xl md:text-[5.5rem]"
+        class="animate-item mb-6 sm:mb-8 text-3xl font-bold leading-[1.15] sm:leading-[1.1] tracking-[-0.03em] text-white text-balance sm:text-6xl md:text-[5rem] lg:text-[5.5rem]"
         style="animation-delay: 0.1s;"
     />
     
     <p 
         set:html={description} 
-        class="animate-item mb-12 max-w-[680px] text-base font-normal leading-relaxed text-slate-400 sm:text-lg md:text-xl"
+        class="animate-item mb-10 sm:mb-12 max-w-[680px] text-sm sm:text-base md:text-lg lg:text-xl font-normal leading-relaxed text-slate-400 text-pretty"
         style="animation-delay: 0.25s;"
     />
     
     <div 
-        class="animate-item flex items-center gap-5"
+        class="animate-item flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 w-full sm:w-auto px-4 sm:px-0"
         style="animation-delay: 0.4s;"
     >
         {buttons &&
@@ -35,9 +36,10 @@ const { title, description, buttons } = Astro.props;
                 <a 
                     href={button.link} 
                     class={
-                        index === 0 
-                            ? "inline-block rounded-full border border-transparent bg-[#5d5bf6] px-[2.2rem] py-[0.85rem] text-base font-medium text-white no-underline transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-[#4b49dc] hover:shadow-[0_10px_25px_rgba(93,91,246,0.25)]" 
-                            : "inline-block rounded-full border border-slate-700 bg-transparent px-[2.2rem] py-[0.85rem] text-base font-medium text-white no-underline transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:border-white hover:bg-white/5"
+                        `inline-block w-full sm:w-auto text-center rounded-full px-[2.2rem] py-[0.85rem] text-base font-medium text-white no-underline transition-all duration-300 ease-in-out hover:-translate-y-0.5 active:translate-y-0 ` +
+                        (index === 0 
+                            ? "border border-transparent bg-[#5d5bf6] hover:bg-[#4b49dc] hover:shadow-[0_10px_25px_rgba(93,91,246,0.25)]" 
+                            : "border border-slate-700 bg-transparent hover:border-white hover:bg-white/5")
                     }
                 >
                     {button.text}
@@ -57,7 +59,7 @@ const { title, description, buttons } = Astro.props;
     @keyframes fadeInUp {
         from {
             opacity: 0;
-            transform: translateY(30px); 
+            transform: translateY(20px); /* Slightly brought down from 30px for smoother mobile tracking */
         }
         to {
             opacity: 1;
