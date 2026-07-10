@@ -1,4 +1,6 @@
 ---
+import cipharxNormal from '../images/logos/nav/cifarx-logo.svg';
+import cipharxMobile from '../images/logos/nav/cifarx-logo-dark.svg';
 ---
 <header id="siteHeader" class="main-header fixed top-0 left-0 w-full z-[1000] transition-all duration-[600ms] ease-[cubic-bezier(0.25,1,0.5,1)] max-md:[.scrolled_&]:top-0">
   
@@ -8,12 +10,12 @@
   
     <div class="header-logo relative z-[1003] h-7 md:h-8 w-32 md:w-36">
       <img 
-        src="/logos/nav/cifarx-logo.svg" 
+        src={cipharxNormal.src} 
         alt="CIFARX Logo" 
         class="logo-light absolute top-0 left-0 h-full w-auto object-contain transition-opacity duration-300 ease-in-out opacity-100 max-md:[.menu-open_&]:opacity-0 max-md:[.menu-open_&]:pointer-events-none"
       >
       <img 
-        src="/logos/nav/cifarx-logo-dark.svg" 
+        src={cipharxMobile.src} 
         alt="CIFARX Logo" 
         class="logo-dark absolute top-0 left-0 h-full w-auto object-contain transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none max-md:[.menu-open_&]:opacity-100 max-md:[.menu-open_&]:pointer-events-auto"
       >

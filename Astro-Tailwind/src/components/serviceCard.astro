@@ -8,7 +8,7 @@ const { title, description, imageSrc, link } = Astro.props;
     <div class="mb-6 sm:mb-8 flex items-center justify-center h-20 w-20 sm:h-[100px] sm:w-[100px] rounded-full bg-[#f1f3f7] transition-all duration-300 ease-in-out group-hover:bg-white/20">
         <div 
             class="h-10 w-10 sm:h-12 sm:w-12 bg-[#05070f] transition-colors duration-300 group-hover:bg-white"
-            style={`mask: url(${imageSrc}) no-repeat center / contain; -webkit-mask: url(${imageSrc}) no-repeat center / contain;`}
+            style={`mask: url('${imageSrc}') no-repeat center / contain; -webkit-mask: url('${imageSrc}') no-repeat center / contain;`}
         ></div>
     </div>
     
